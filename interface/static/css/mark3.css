@@ -1,0 +1,431 @@
+:root {
+    color-scheme: dark;
+    --mark3-bg: #15151C;
+    --mark3-surface: #27232F;
+    --mark3-raised: #312A42;
+    --mark3-purple: #8064B5;
+    --mark3-glow: #C4B5FD;
+    --mark3-text: #F4F3F8;
+    --mark3-muted: #A8A6B1;
+    --mark3-border: #39353F;
+    --amber: var(--mark3-purple);
+    --blue: var(--mark3-glow);
+    --accent: var(--mark3-purple);
+    --text: var(--mark3-text);
+    --dim: var(--mark3-muted);
+    --line: var(--mark3-border);
+    --raise: var(--mark3-surface);
+    accent-color: var(--mark3-purple);
+}
+html, body {
+    background: var(--mark3-bg) !important;
+    color: var(--mark3-text);
+}
+body:before {
+    background: radial-gradient(ellipse at 50% 42%, #8064b510, transparent 56%) !important;
+}
+button:focus-visible, a:focus-visible, summary:focus-visible,
+select:focus-visible, input:focus-visible {
+    outline-color: var(--mark3-glow) !important;
+}
+#drawer, .side-r, .screen-palette, #screenBar,
+.jarvis-dashboard, .daily-header, .daily-card, .daily-mini,
+.daily-status, #drawer .settings-group, #drawer .org-card {
+    color: var(--mark3-text);
+    border-color: var(--mark3-border) !important;
+    background-color: var(--mark3-surface) !important;
+}
+#drawer {
+    background: rgba(21, 21, 28, .97) !important;
+    box-shadow: 0 24px 72px #0009, 0 0 34px #8064b518 !important;
+}
+#drawer .tabs .chip, .screen-tab, .ai-controls button,
+#drawer .btn, #drawer button:not(.ic), .chip {
+    color: var(--mark3-text);
+}
+#drawer .tabs .chip.on, .screen-tab.on, .screen-tab.primary,
+.screen-tab:hover, #drawer button:hover, .ai-controls button:hover {
+    color: var(--mark3-glow) !important;
+    border-color: var(--mark3-purple) !important;
+    background: var(--mark3-raised) !important;
+}
+#drawer .settings-group, #drawer .org-card,
+#widgetGrid .screen-widget, .screen-widget {
+    background: var(--mark3-surface) !important;
+    border-color: var(--mark3-border) !important;
+}
+#widgetGrid .screen-widget.selected { border-color: var(--mark3-purple) !important; }
+.widget-heading, .daily-kicker, .daily-brand > span, #drawer .nav-icon {
+    color: var(--mark3-glow) !important;
+}
+#screenBar, .screen-palette {
+    background: #201c29 !important;
+    border-color: var(--mark3-border) !important;
+    box-shadow: 0 18px 55px #0009, 0 0 28px #8064b510 !important;
+}
+.screen-palette {
+    width: 300px;
+    border-radius: 16px;
+    padding: 14px;
+}
+.main-menu {
+    gap: 12px;
+}
+.mark3-menu-brand {
+    display: grid;
+    gap: 4px;
+    padding: 5px 5px 13px;
+    border-bottom: 1px solid var(--mark3-border);
+}
+.mark3-menu-brand strong {
+    color: var(--mark3-text);
+    font-size: 15px;
+    letter-spacing: .16em;
+}
+.mark3-menu-brand span, .mark3-menu-group h2 {
+    color: var(--mark3-muted);
+    font-size: 9px;
+    letter-spacing: .14em;
+}
+.mark3-menu-group {
+    display: grid;
+    gap: 4px;
+}
+.mark3-menu-group h2 {
+    margin: 4px 5px;
+    font-weight: 700;
+}
+.mark3-nav-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 36px;
+    padding: 7px 10px;
+    border: 1px solid transparent;
+    background: transparent;
+    text-align: left;
+    color: var(--mark3-text);
+}
+.mark3-nav-icon {
+    width: 20px;
+    color: var(--mark3-glow);
+    font-size: 16px;
+    text-align: center;
+}
+.mark3-nav-item.on, .mark3-nav-item:hover {
+    background: var(--mark3-raised) !important;
+    color: var(--mark3-glow) !important;
+    border-color: #8064b548 !important;
+}
+.mark3-service {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    min-height: 32px;
+    width: 100%;
+    font-size: 11px;
+}
+.mark3-service-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #77727f;
+    box-shadow: none;
+}
+.mark3-service[data-state="on"] .mark3-service-dot { background: #42c996; }
+.mark3-service[data-state="off"] .mark3-service-dot { background: #77727f; }
+.mark3-service[data-state="unknown"] .mark3-service-dot { background: #000000; }
+.mark3-shortcuts {
+    position: absolute;
+    z-index: 9;
+    top: 78%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    max-width: min(94vw, 620px);
+}
+.mark3-shortcuts button {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    min-height: 34px;
+    padding: 7px 12px;
+    border: 1px solid var(--mark3-border);
+    border-radius: 999px;
+    background: #201c29;
+    color: var(--mark3-text);
+    font: 12px "Segoe UI", Arial, sans-serif;
+    cursor: pointer;
+}
+.mark3-shortcuts button span { color: var(--mark3-glow); }
+.mark3-shortcuts button:hover {
+    border-color: var(--mark3-purple);
+    background: var(--mark3-raised);
+}
+#center .name, #center .status { color: var(--mark3-glow); }
+#center .name { text-shadow: 0 0 20px #8064b540; }
+@media (max-width: 760px) {
+    .mark3-shortcuts { top: auto; bottom: 19%; }
+    .screen-palette { left: 12px; bottom: 72px; }
+}
+@media (max-height: 700px) {
+    .mark3-shortcuts { top: auto; bottom: 18%; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .mark3-shortcuts *, .mark3-menu * { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+}
+.casa-routine-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 12px 0 18px;
+    padding: 8px;
+    border: 1px solid var(--mark3-border);
+    border-radius: 12px;
+    background: #211d2a;
+}
+.casa-routine-tabs .casa-button {
+    border-color: transparent;
+    background: transparent;
+}
+.casa-routine-tabs .casa-button.selected {
+    color: var(--mark3-glow);
+    background: var(--mark3-raised);
+    border-color: #8064b550;
+}
+.casa-device-overview {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(150px,1fr));
+    gap: 10px;
+    margin-top: 14px;
+}
+.casa-device-status, .casa-history-row {
+    display: grid;
+    gap: 7px;
+    padding: 14px;
+    border: 1px solid var(--mark3-border);
+    border-radius: 12px;
+    background: #211d2a;
+}
+.casa-device-status small, .casa-history-row small { color: var(--mark3-muted); }
+.casa-history-row { margin: 10px 0; }
+.casa-history-row p { margin: 0; }
+.mark3-menu-brand {
+    grid-template-columns: minmax(0,1fr) 28px;
+    align-items: center;
+}
+.mark3-menu-close {
+    width: 28px;
+    height: 28px;
+    border: 1px solid var(--mark3-border);
+    border-radius: 8px;
+    background: var(--mark3-raised);
+    color: var(--mark3-muted);
+    cursor: pointer;
+}
+.casa-modal { color: var(--mark3-text); }
+.casa-shell {
+    color: var(--mark3-text);
+    background: var(--mark3-bg);
+    border-color: var(--mark3-border);
+}
+.casa-header { border-color: var(--mark3-border); }
+.casa-card, .casa-form, .casa-routines,
+.casa-tabs, .casa-status {
+    border-color: var(--mark3-border);
+}
+.casa-card, .casa-step-card, .casa-routine-tabs {
+    background: var(--mark3-surface);
+}
+.casa-button {
+    color: var(--mark3-text);
+    border-color: var(--mark3-border);
+    background: #211d2a;
+}
+.casa-button.primary, .casa-tabs .selected {
+    color: #fff;
+    border-color: var(--mark3-purple);
+    background: var(--mark3-purple);
+}
+.casa-badge.on { color: #7de0b5; border-color: #42c99670; }
+.casa-field textarea {
+    width: 100%;
+    box-sizing: border-box;
+    min-height: 72px;
+    padding: 10px 12px;
+    border: 1px solid var(--mark3-border);
+    border-radius: 9px;
+    background: #1d1925;
+    color: var(--mark3-text);
+    resize: vertical;
+}
+/* Separa os símbolos da navegação do texto do menu Mark III. */
+.mark3-menu-brand > div {
+    display: grid;
+    gap: 5px;
+    min-width: 0;
+}
+.mark3-menu-brand strong {
+    display: block;
+    line-height: 1.2;
+}
+.mark3-menu-brand span {
+    display: block;
+    line-height: 1.35;
+    overflow-wrap: anywhere;
+}
+.mark3-nav-item {
+    display: grid !important;
+    grid-template-columns: 22px minmax(0, 1fr);
+    align-items: center;
+    column-gap: 11px;
+}
+.mark3-nav-icon {
+    display: inline-grid;
+    place-items: center;
+    width: 22px;
+    min-width: 22px;
+    margin: 0;
+    line-height: 1;
+}
+.mark3-nav-item > span:last-child {
+    display: block;
+    min-width: 0;
+    padding-left: 2px;
+    line-height: 1.3;
+}
+/* Central Casa: mantém o diálogo centralizado e o editor de rotina dentro do viewport. */
+.casa-modal[open] {
+    position: fixed;
+    inset: 0;
+    width: min(960px, calc(100vw - 32px));
+    height: min(860px, calc(100dvh - 32px));
+    max-width: none;
+    max-height: none;
+    margin: auto;
+    overflow: hidden;
+}
+.casa-shell {
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+    min-height: 0;
+    grid-template-rows: auto auto auto minmax(0, 1fr);
+}
+.casa-content, .casa-form, .casa-form > *, .casa-step-editor, .casa-step-row, .casa-step-extra {
+    min-width: 0;
+    box-sizing: border-box;
+}
+.casa-form { width: 100%; }
+.casa-form input, .casa-form select, .casa-form textarea {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+.casa-step-editor { display: grid; gap: 10px; }
+.casa-step-row {
+    display: grid;
+    grid-template-columns: minmax(145px, .75fr) minmax(0, 1.5fr) auto;
+    align-items: center;
+    gap: 10px;
+    padding: 12px;
+    border: 1px solid var(--mark3-border);
+    border-radius: 10px;
+    background: #211d2a;
+}
+.casa-step-extra { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px; }
+.casa-step-row .casa-button, .casa-form > .casa-actions .casa-button,
+.casa-step-editor > .casa-button { white-space: nowrap; }
+.casa-form > .casa-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.casa-days { min-width: 0; padding: 10px 12px; }
+.casa-day { white-space: nowrap; }
+@media (max-width: 680px) {
+    .casa-modal[open] { width: calc(100vw - 20px); height: calc(100dvh - 20px); }
+    .casa-header, .casa-tabs { padding: 12px 14px; }
+    .casa-step-row { grid-template-columns: minmax(0, 1fr) auto; }
+    .casa-step-row > select:first-child { grid-column: 1 / -1; }
+    .casa-step-extra { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* Azul e roxo destacam escolhas e controles ativos. */
+:root { --mark3-blue: #38BDF8; }
+#drawer .tabs .chip.on, .screen-tab.on, .screen-tab.primary,
+.casa-tabs .selected, .casa-routine-tabs .casa-button.selected,
+.mark3-nav-item.on {
+    color: #F4F3F8 !important;
+    border-color: var(--mark3-blue) !important;
+    background: linear-gradient(115deg, #2878b8 0%, var(--mark3-purple) 100%) !important;
+    box-shadow: 0 0 0 1px #8064b540, 0 0 16px #38bdf82b;
+}
+#drawer .tabs .chip.on, .screen-tab.on, .screen-tab.primary,
+.casa-tabs .selected, .casa-routine-tabs .casa-button.selected { border-radius: 9px; }
+#widgetGrid .screen-widget.selected, .screen-widget.selected {
+    border-color: var(--mark3-blue) !important;
+    box-shadow: inset 0 0 0 1px var(--mark3-purple), 0 0 16px #38bdf82b !important;
+}
+input[type="checkbox"], input[type="radio"] { accent-color: var(--mark3-blue); }
+button:focus-visible, a:focus-visible, select:focus-visible,
+input:focus-visible, textarea:focus-visible {
+    outline: 2px solid var(--mark3-blue) !important;
+    outline-offset: 2px;
+}
+
+/* Contornos herdados da interface antiga usam azul-céu na identidade Mark III. */
+.camera-tool, .widget-sizes, .quick-actions, .quick-actions input,
+.jarvis-dashboard, .dashboard-body select { border-color: var(--mark3-blue) !important; }
+.camera-tools { color: var(--mark3-text); }
+
+/* Central Casa: navegação de subpáginas e botões com espaçamento consistente. */
+.casa-header-actions { display:flex; align-items:center; gap:10px; flex:0 0 auto; }
+.casa-header-actions [hidden] { display:none !important; }
+.casa-form .casa-actions, .casa-actions { align-items:center; gap:10px; }
+.casa-actions > .casa-button { display:inline-flex; flex:0 0 auto; width:auto; min-width:max-content; min-height:40px; align-items:center; justify-content:center; white-space:nowrap; line-height:1.25; }
+.casa-step-editor > .casa-button { justify-self:start; width:auto; min-width:max-content; min-height:42px; padding-inline:16px; }
+.casa-step-row { grid-template-columns:minmax(145px,.75fr) minmax(0,1.5fr) max-content; }
+.casa-step-row > .casa-button { width:auto; min-width:max-content; justify-self:end; }
+.casa-form textarea { min-height:88px; resize:vertical; border:1px solid var(--mark3-border); border-radius:8px; background:#15151C; color:var(--mark3-text); padding:10px; font:inherit; }
+.casa-form > .casa-actions { justify-content:flex-start; padding-top:4px; }
+@media (max-width:680px) {
+  .casa-header-actions { gap:6px; }
+  .casa-header-actions .casa-button { padding:8px 10px; }
+  .casa-step-row { grid-template-columns:minmax(0,1fr); }
+  .casa-step-row > .casa-button { justify-self:start; }
+}
+
+
+/* Central Casa: grupos visuais claros, estados compactos e rolagem previsível. */
+.casa-content {
+    align-content: start;
+    gap: 20px;
+    padding: 18px 24px 28px;
+    scroll-padding-block: 18px;
+}
+.casa-section { display: grid; gap: 12px; min-width: 0; }
+.casa-section-heading { display: grid; gap: 3px; padding: 0 2px; }
+.casa-section-heading h2 { margin: 0; font-size: 16px; color: var(--mark3-text); }
+.casa-section-heading p { margin: 0; color: var(--mark3-muted); font-size: 13px; }
+.casa-device-overview { grid-template-columns: repeat(auto-fit,minmax(min(100%,210px),1fr)); margin: 0; }
+.casa-device-status { min-width: 0; align-content: start; gap: 9px; }
+.casa-device-status-top { display: flex; align-items: center; justify-content: space-between; gap: 8px; min-width: 0; }
+.casa-device-status-top strong { min-width: 0; }
+.casa-device-status .casa-badge, .casa-card-top .casa-badge {
+    flex: 0 1 auto;
+    max-width: 52%;
+    text-align: center;
+    overflow-wrap: anywhere;
+    line-height: 1.25;
+}
+.casa-grid { grid-template-columns: repeat(auto-fit,minmax(min(100%,280px),1fr)); gap: 12px; }
+.casa-grid > .casa-card { min-width: 0; align-content: start; }
+.casa-card-top { align-items: flex-start; }
+.casa-card-top > div { min-width: 0; }
+.casa-card-top strong { line-height: 1.35; }
+.casa-card-top small { line-height: 1.45; }
+.casa-content > .casa-card:first-child { margin-bottom: 0; }
+@media (max-width: 680px) {
+    .casa-content { gap: 16px; padding-top: 14px; }
+    .casa-device-overview, .casa-grid { grid-template-columns: minmax(0,1fr); }
+    .casa-device-status-top { align-items: flex-start; }
+}

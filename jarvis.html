@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <script>if (["qt", "native"].includes(new URLSearchParams(location.search).get("embutido"))) document.documentElement.classList.add("native-glass");</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>J.A.R.V.I.S. · Mark III Control Center</title>
+    <link rel="icon" type="image/png" href="/static/icons/jarvis.png?v=1">
+    <link rel="icon" type="image/x-icon" href="/static/icons/jarvis.ico?v=1">
+    <link rel="stylesheet" href="/static/css/telasWidgets.css?v=20261015-black-1">
+    <link rel="stylesheet" href="/static/css/dailyBriefing.css?v=20261015-black-1">
+    <link rel="stylesheet" href="/static/css/personalHologram.css?v=20261015-black-1">
+    <link rel="stylesheet" href="/static/css/jarvis.css?v=20261015-black-1">
+    <link rel="stylesheet" href="/static/css/cornerPanel.css?v=20261015-black-1">
+    <link rel="stylesheet" href="/static/css/workspaceShell.css?v=20261015-black-1">
+    <link rel="stylesheet" href="/static/css/cardEnhancements.css?v=20261015-black-1">
+    <link rel="stylesheet" href="/static/css/experience.css?v=20261015-black-1">
+    <link rel="stylesheet" href="/static/css/mark3.css?v=20261015-casa-organized-1">
+</head>
+
+<body>
+    <div class="top-hud">
+        <div class="system-stat" aria-label="Uso do processador">
+            <div class="system-stat-label"><span>Processador</span><span id="cpuv">–</span></div>
+            <div class="bar"><i id="cpub"></i></div>
+        </div>
+        <div class="top-clock">
+            <div class="clock" id="hm">00:00</div>
+            <div class="date" id="dt">&nbsp;</div>
+            <div class="clima" id="cl"></div>
+        </div>
+        <div class="system-stat memory-stat" aria-label="Uso da memória">
+            <div class="system-stat-label"><span>Memória</span><span id="ramv">–</span></div>
+            <div class="bar"><i id="ramb"></i></div>
+        </div>
+        <button class="settings-float" id="settingsOpen" data-open="cfg" type="button" title="Configurações"
+            aria-label="Abrir configurações"><svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 8.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Z" />
+                <path
+                    d="m19.4 15 .1.1a1.7 1.7 0 0 1-2.4 2.4l-.1-.1a1.7 1.7 0 0 0-2.9 1.2v.2a1.7 1.7 0 0 1-3.4 0v-.2a1.7 1.7 0 0 0-2.9-1.2l-.1.1a1.7 1.7 0 0 1-2.4-2.4l.1-.1a1.7 1.7 0 0 0-1.2-2.9H4a1.7 1.7 0 0 1 0-3.4h.2a1.7 1.7 0 0 0 1.2-2.9l-.1-.1a1.7 1.7 0 0 1 2.4-2.4l.1.1a1.7 1.7 0 0 0 2.9-1.2V2a1.7 1.7 0 0 1 3.4 0v.2a1.7 1.7 0 0 0 2.9 1.2l.1-.1a1.7 1.7 0 0 1 2.4 2.4l-.1.1a1.7 1.7 0 0 0 1.2 2.9h.2a1.7 1.7 0 0 1 0 3.4h-.2a1.7 1.7 0 0 0-1.2 2.9Z" />
+            </svg></button>
+    </div>
+
+    <canvas id="three-canvas" aria-hidden="true"></canvas>
+
+    <div class="stage" id="stage">
+
+        <main class="center" id="center">
+            <div class="name">JARVIS</div>
+            <div class="status" id="status">Iniciando</div>
+        </main>
+
+        <aside class="side-r in" style="--d:.7s">
+            <div class="chat-hd"><span class="dot" id="ws"></span><span id="sess">Sessão principal</span><span
+                    class="sp"></span>
+                <button class="chip" id="chatCommands" data-open="cmd" type="button">Comandos</button>
+                <button class="chip" id="chatExpand" type="button" aria-expanded="false"
+                    aria-controls="chat">Expandir</button>
+                <button class="chip" id="chatMenu" type="button" aria-label="Opções da conversa" aria-expanded="false"
+                    aria-controls="chatTools">⋯</button>
+                <div id="chatTools" class="chat-tools" hidden><button class="chip" id="nova">Nova
+                        conversa</button><button class="chip chat-delete" id="chatDelete">Excluir chat</button><button
+                        class="chip" id="chatx">Ocultar</button></div>
+            </div>
+            <div class="chat-voice" id="chatVoice">
+                <button class="ic" id="mic" title="Escuta de voz" aria-label="Microfone"><span class="lv"
+                        id="lv"></span><svg viewBox="0 0 24 24">
+                        <rect x="9" y="3" width="6" height="11" rx="3" />
+                        <path d="M5 11a7 7 0 0 0 14 0M12 18v3" />
+                    </svg></button>
+                <button class="voz" id="voz" title="Alternar a escuta de voz do PC"><i></i><span>Voz…</span></button>
+                <span id="vs" class="voice-hint"></span>
+                <div class="mic-meter" id="micMeter" aria-label="Nível do microfone">
+                    <div class="mic-meter-head"><strong>Microfone</strong><span id="micValue">0%</span></div>
+                    <div class="mic-meter-track"><i id="micLevel"></i><b id="micPeak" aria-hidden="true"></b></div>
+                    <span class="mic-meter-hint" id="micHint">Aguardando estado do microfone</span>
+                </div>
+            </div>
+            <div class="chat-heard" id="chatHeard" hidden><span id="chatHeardLabel">Ouvi</span><span
+                    id="chatHeardText"></span><small id="chatHeardState"></small></div>
+            <div class="msgs" id="chat" role="log" aria-live="polite"></div>
+            <form id="form" autocomplete="off">
+                <input id="inp" placeholder="Escreva um comando para o Jarvis…" aria-label="Comando">
+                <button type="submit" aria-label="Enviar">›</button>
+            </form>
+        </aside>
+    </div>
+
+    <button id="chatopen">Abrir conversa</button>
+    <div class="hud-actions" id="hudActions">
+        <button class="speech-stop" id="speechStop" type="button" aria-label="Interromper resposta e fala do Jarvis"
+            title="Interromper resposta do Jarvis e parar a fala"><svg viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="9" />
+                <rect x="9" y="9" width="6" height="6" rx="1" />
+            </svg></button>
+    </div>
+    <div id="lb"><img alt></div>
+    <div class="shade" id="shade"></div>
+    <section class="drawer" id="drawer" aria-label="Painel">
+        <header>
+            <nav class="tabs" id="tabs"></nav>
+            <div class="ai-controls"><button id="lmControl" type="button">LM Studio</button><button id="hermesControl"
+                    type="button">Hermes</button></div>
+        </header>
+        <div class="drawer-actions" id="drawerActions" aria-label="Ações do sistema"><button class="chip" id="cfgx"
+                type="button">Fechar</button><button class="ic servidor_local-toggle" id="servidor_localToggle"
+                title="Desativar LM Studio" aria-label="Desativar LM Studio"><svg viewBox="0 0 24 24">
+                    <path d="M8 7V4m8 3V4M7 11h10M9 16v4m6-4v4M5 8h14v9H5z" />
+                    <circle cx="9" cy="13" r="1" />
+                    <circle cx="15" cy="13" r="1" />
+                </svg><span class="action-label">IA local</span></button><button class="ic voice-action" id="stop"
+                title="Interromper o servidor local do LM Studio" aria-label="Interromper servidor LM Studio"><svg
+                    viewBox="0 0 24 24" aria-hidden="true">
+                    <rect x="7" y="7" width="10" height="10" rx="1.5" />
+                </svg><span class="action-label">Parar IA local</span></button><button class="ic voice-action"
+                id="shutdownMark2" title="Encerrar o processo completo do Mark 2" aria-label="Encerrar Mark 2"><svg
+                    viewBox="0 0 24 24" aria-hidden="true">
+                    <circle cx="12" cy="12" r="9" />
+                    <path d="m9 9 6 6m0-6-6 6" />
+                </svg><span class="action-label">Encerrar Jarvis</span></button></div>
+        <div id="pane"></div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js"></script>
+    <script src="/hud/core3d.js?v=20261015-core-glow-1"></script>
+    <script src="/static/js/newsHologram.js"></script>
+    <script src="/static/js/personalHologram.js?v=20261013-pessoal-5"></script>
+    <script src="/static/js/securityEvents.js?v=20261013-media-2"></script>
+    <script src="/static/js/dailyBriefing.js?v=20261014-fortes-2"></script>
+    <script src="/static/js/cornerPanel.js?v=20261014-deteccoes-dia-1"></script>
+    <script src="/static/js/cameraPlayer.js?v=20261014-upgrade-1"></script>
+    <script src="/static/js/cameraYolo.js?v=20261015-black-1"></script>
+    <script src="/static/js/cameraCard.js?v=20261014-upgrade-1"></script>
+    <script src="/static/js/cardEnhancements.js?v=20261014-upgrade-1"></script>
+    <script src="/static/js/centralCasa.js?v=20261015-cleanup-1"></script>
+    <script src="/static/js/telasWidgets.js?v=20261015-stark-arm-2"></script>
+    <script src="/static/js/jarvis.js?v=20261015-central-connections-3"></script>
+    <script src="/static/js/workspaceShell.js?v=20261015-central-connections-3"></script>
+    <script src="/static/js/interfacePerformance.js?v=1"></script>
+    <script src="/static/js/experience.js?v=20261014-upgrade-1"></script>
+</body>
+
+</html>

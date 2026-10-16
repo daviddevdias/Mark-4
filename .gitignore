@@ -1,0 +1,80 @@
+# Dados privados e locais
+/data/
+/backups/
+/interface/data/
+/contatos/
+/sessao_whatsapp/
+/Mark2Jarvis/
+.env
+.env.*
+!.env.example
+*.db
+*.db-*
+*.sqlite
+*.sqlite3
+*.sqlite-*
+*.pem
+*.key
+*.pfx
+*.p12
+*.log
+*.bak
+*.bak.*
+*.tmp
+
+# Modelos e ferramentas
+/modelos_voz/
+/.tools/
+.venv/
+venv/
+*.onnx
+*.bin
+*.dll
+/go2rtc.exe
+/go2rtc.yaml
+
+# Python e editor
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.idea/
+.vscode/
+
+# Compilação Android
+.gradle/
+.gradle-codex-check/
+**/.gradle/
+**/build/
+**/captures/
+*.iml
+local.properties
+*.apk
+*.aab
+*.jks
+*.keystore
+
+# Pacotes gerados
+node_modules/
+dist/
+*.zip
+
+# Credenciais e caches antigos
+/elevenlabs_eco/configuracao.json
+/elevenlabs_eco/dados/
+/Save/
+/go2rtc/
+
+# Artefatos locais adicionais (nao publicar)
+.android-codex-check/
+.kotlin/
+/Android/wrapper/dists/
+*.keystore.lock
+*.jks.lock
+*.log.*
+*.db.*
+*.pt
+credentials.json
+client_secret*.json
+token.json
+tokens.json

@@ -1,0 +1,647 @@
+/* Define paineis vivos e leves */
+.clock-digital {
+    font-size: 24px;
+    color: #F4F3F8;
+    text-align: center;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 2px
+}
+
+.mac-clock-face {
+    max-height: 170px
+}
+
+.resource-metrics {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px
+}
+
+.resource-metrics>div {
+    padding: 9px;
+    border: 1px solid #264357;
+    border-radius: 9px;
+    background: #102538
+}
+
+.resource-metrics span {
+    display: block;
+    font-size: 10px;
+    color: #86a9bf
+}
+
+.resource-metrics strong {
+    font-size: 20px;
+    color: #F4F3F8;
+    font-variant-numeric: tabular-nums
+}
+
+.resource-chart {
+    width: 100%;
+    height: 85px;
+    display: block;
+    margin-top: 10px
+}
+
+.chart-caption {
+    font-size: 9px;
+    color: #9fbbcd
+}
+
+.resource-processes {
+    margin-top: 12px;
+    font-size: 11px
+}
+
+.resource-processes>div {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 5px 0
+}
+
+.resource-processes span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+
+.mobile-count {
+    font-size: 23px;
+    color: #F4F3F8
+}
+
+.mobile-message {
+    border-top: 1px solid #274354;
+    padding: 9px 0;
+    font-size: 12px
+}
+
+.mobile-message p {
+    color: #99b7ca;
+    margin: 4px 0;
+    overflow-wrap: anywhere
+}
+
+.jarvis-card-dialog {
+    width: min(680px, 88vw);
+    max-height: 82vh;
+    padding: 0;
+    border: 1px solid #416782;
+    border-radius: 18px;
+    color: #F4F3F8;
+    background: #0d1b2b;
+    box-shadow: 0 18px 70px #0008;
+    overflow: auto
+}
+
+.jarvis-card-dialog::backdrop {
+    background: #030a14b8
+}
+
+.jarvis-card-dialog>header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 22px;
+    border-bottom: 1px solid #2c465c;
+    position: sticky;
+    top: 0;
+    background: #102135
+}
+
+.mail-detail {
+    padding: 22px
+}
+
+.mail-detail h2 {
+    font-size: 23px;
+    line-height: 1.35
+}
+
+.mail-sender {
+    color: #F4F3F8;
+    font-size: 12px;
+    overflow-wrap: anywhere
+}
+
+.mail-body {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    max-height: 35vh;
+    overflow: auto
+}
+
+.mail-draft {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 180px;
+    background: #071322;
+    color: #F4F3F8;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    padding: 14px;
+    resize: vertical
+}
+
+.mail-draft[hidden] {
+    display: none
+}
+
+.card-feedback {
+    font-size: 12px;
+    color: #F4F3F8
+}
+
+.jarvis-card-dialog button {
+    padding: 9px 15px;
+    border: 1px solid #000000;
+    border-radius: 9px;
+    background: #153448;
+    color: #F4F3F8;
+    cursor: pointer
+}
+
+/* Anima clima e defesa discretos */
+#widgetGrid .mac-fall {
+    animation: card-rain 1.7s linear infinite;
+    stroke: #000000;
+    stroke-width: 2
+}
+
+#widgetGrid .mac-snow {
+    animation: card-rain 3s linear infinite
+}
+
+#widgetGrid .mac-drift {
+    animation: card-cloud 7s ease-in-out infinite
+}
+
+#widgetGrid .mac-flash {
+    animation: card-storm 6s linear infinite
+}
+
+#widgetGrid [data-tipo=security] .security-shield {
+    position: relative;
+    overflow: visible !important
+}
+
+#widgetGrid [data-tipo=security][data-estado=on] .security-shield::after {
+    content: "";
+    position: absolute;
+    inset: -9px;
+    border: 1px solid #54d1b9;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: card-radar 8s linear infinite
+}
+
+#widgetGrid .mac-wx-icon svg {
+    width: 96px;
+    height: 96px
+}
+
+.weather-paused .mac-fall, .weather-paused .mac-drift, .weather-paused .mac-flash, .weather-paused .mac-snow, .weather-paused .security-shield::after {
+    animation-play-state: paused !important
+}
+
+@keyframes card-rain {
+    0% {
+        transform: translateY(-3px);
+        opacity: 0
+    }
+
+    30% {
+        opacity: 1
+    }
+
+    100% {
+        transform: translateY(8px);
+        opacity: 0
+    }
+}
+
+@keyframes card-cloud {
+    50% {
+        transform: translateX(3px)
+    }
+}
+
+@keyframes card-storm {
+    0%, 92%, 100% {
+        opacity: 1
+    }
+
+    94% {
+        opacity: .2
+    }
+
+    96% {
+        opacity: 1
+    }
+
+    98% {
+        opacity: .2
+    }
+}
+
+@keyframes card-radar {
+    to {
+        transform: rotate(360deg)
+    }
+}
+
+@media(prefers-reduced-motion:reduce) {
+    #widgetGrid .mac-fall, #widgetGrid .mac-drift, #widgetGrid .mac-flash, #widgetGrid .mac-snow, #widgetGrid .security-shield::after {
+        animation: none !important
+    }
+}
+
+/* Organiza midias por dia e hora */
+.detection-day {
+    font-size: 11px;
+    font-weight: 600;
+    color: #F4F3F8;
+    letter-spacing: .6px;
+    padding: 7px 0;
+    margin: 9px 0;
+    border-bottom: 1px solid #264357
+}
+
+.detection-history-row {
+    display: grid;
+    grid-template-columns: 76px minmax(0, 1fr);
+    gap: 12px;
+    padding: 11px 0;
+    border-bottom: 1px solid #213749
+}
+
+.detection-thumbnail {
+    border: 1px solid #38586f;
+    padding: 0;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #0a1825;
+    cursor: pointer;
+    width: 76px;
+    height: 76px
+}
+
+.detection-thumbnail img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover
+}
+
+.detection-copy {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    min-width: 0
+}
+
+.detection-time {
+    font-size: 20px;
+    font-weight: 600;
+    color: #F4F3F8;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: .6px
+}
+
+.detection-caption {
+    font-size: 10px;
+    color: #92b0c4
+}
+
+.detection-actions {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap
+}
+
+.history-media-button {
+    font-size: 10px;
+    padding: 5px 8px;
+    border: 1px solid #000000;
+    border-radius: 7px;
+    color: #F4F3F8;
+    background: #153044;
+    cursor: pointer
+}
+
+.history-media-button:hover {
+    background: #20465e
+}
+
+.detection-thumbnail:focus-visible, .history-media-button:focus-visible {
+    outline: 2px solid #000000;
+    outline-offset: 2px
+}
+
+/* Define painel do protocolo Stark */
+#widgetGrid [data-tipo=security] {
+    background: radial-gradient(ellipse at 0 0, #163d5060, transparent 65%), linear-gradient(145deg, #0d1b2a, #08131e) !important
+}
+
+#widgetGrid [data-tipo=security][data-estado=on] {
+    border-color: #000000 !important
+}
+
+#widgetGrid [data-tipo=security] .widget-content {
+    display: flex;
+    flex-direction: column;
+    gap: 13px
+}
+
+#widgetGrid [data-tipo=security] .security-state-row {
+    justify-content: flex-start;
+    gap: 20px
+}
+
+#widgetGrid [data-tipo=security] .security-state-copy {
+    gap: 5px
+}
+
+#widgetGrid [data-tipo=security] .mac-pill {
+    font-size: 9px;
+    letter-spacing: .7px;
+    padding: 5px 8px;
+    background: #213849;
+    color: #F4F3F8
+}
+
+#widgetGrid [data-tipo=security][data-estado=on] .mac-pill {
+    background: #12463c;
+    color: #89ead5
+}
+
+.stark-headline {
+    font-size: 17px;
+    color: #F4F3F8;
+    line-height: 1.3
+}
+
+.stark-description {
+    font-size: 10px;
+    color: #8fafc4;
+    line-height: 1.4
+}
+
+.stark-metrics {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px
+}
+
+.stark-metrics>div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #294556;
+    border-radius: 8px;
+    padding: 9px;
+    background: #0b1c2a
+}
+
+.stark-metrics span {
+    font-size: 8px;
+    letter-spacing: .5px;
+    color: #84aac1
+}
+
+.stark-metrics strong {
+    font-size: 16px;
+    color: #F4F3F8;
+    font-variant-numeric: tabular-nums
+}
+
+.stark-metrics strong[data-online=true] {
+    color: #77d6b9
+}
+
+.stark-metrics strong[data-online=false] {
+    color: #F4F3F8
+}
+
+.stark-last {
+    font-size: 10px;
+    color: #799bb3
+}
+
+#widgetGrid [data-tipo=security] .mac-btn {
+    width: 100%;
+    padding: 10px;
+    font-weight: 600;
+    border-color: #000000;
+    background: #143b46;
+    color: #F4F3F8
+}
+
+#widgetGrid [data-tipo=security] .mac-btn[data-armed=true] {
+    background: #152d35;
+    color: #abd5d3;
+    border-color: #2f555c
+}
+
+/* Torna a mensagem legivel */
+.jarvis-card-dialog {
+    overflow: hidden
+}
+
+.jarvis-card-dialog>header {
+    z-index: 1
+}
+
+.mail-detail {
+    max-height: calc(82vh - 76px);
+    overflow-y: auto;
+    box-sizing: border-box;
+    scrollbar-width: thin;
+    scrollbar-color: #416782 transparent
+}
+
+.mail-body {
+    white-space: normal;
+    max-height: none;
+    overflow: visible;
+    line-height: 1.75;
+    font-size: 14px
+}
+
+.mail-body p {
+    white-space: pre-wrap;
+    margin: 0 0 16px
+}
+
+.mail-link {
+    display: inline-block;
+    max-width: 100%;
+    padding: 3px 9px;
+    border: 1px solid #000000;
+    border-radius: 6px;
+    background: #153448;
+    color: #F4F3F8;
+    text-decoration: none;
+    vertical-align: baseline;
+    overflow-wrap: anywhere
+}
+
+.mail-link:hover {
+    background: #20485f
+}
+
+.mail-link:focus-visible {
+    outline: 2px solid #000000;
+    outline-offset: 2px
+}
+
+/* Separa leitura e acoes do email */
+.jarvis-card-dialog {
+    width: min(820px, calc(100vw - 48px));
+    max-height: calc(100dvh - 48px);
+    margin: auto;
+    font-family: system-ui, sans-serif;
+    box-sizing: border-box
+}
+
+.jarvis-card-dialog[open] {
+    display: flex;
+    flex-direction: column
+}
+
+.jarvis-card-dialog>header {
+    position: static;
+    flex-shrink: 0;
+    padding: 18px 24px
+}
+
+.mail-detail {
+    min-height: 0;
+    max-height: none;
+    overflow-y: auto;
+    padding: 26px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px
+}
+
+.mail-detail h2 {
+    margin: 0;
+    font-size: 25px;
+    font-weight: 650;
+    line-height: 1.35;
+    overflow-wrap: anywhere
+}
+
+.mail-metadata {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #294257
+}
+
+.mail-avatar {
+    display: grid;
+    place-items: center;
+    flex: 0 0 40px;
+    height: 40px;
+    border-radius: 12px;
+    background: #173d52;
+    color: #F4F3F8;
+    font-size: 18px;
+    font-weight: 600
+}
+
+.mail-metadata>div {
+    min-width: 0;
+    display: grid;
+    gap: 5px
+}
+
+.mail-sender {
+    margin: 0;
+    font-size: 13px;
+    color: #F4F3F8
+}
+
+.mail-date {
+    font-size: 11px;
+    color: #84a6be
+}
+
+.mail-body {
+    line-height: 1.8;
+    color: #F4F3F8;
+    flex-shrink: 0
+}
+
+.mail-body p {
+    margin: 0 0 18px
+}
+
+.mail-body p:last-child {
+    margin-bottom: 0
+}
+
+.mail-link {
+    display: inline-flex;
+    align-items: center;
+    margin: 5px 0;
+    padding: 5px 11px;
+    line-height: 1.4;
+    font-size: 12px
+}
+
+.mail-actions {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 16px 24px;
+    border-top: 1px solid #2c465c;
+    background: #102135
+}
+
+.mail-actions .card-feedback {
+    flex: 1 1 240px;
+    margin: 0;
+    font-size: 11px
+}
+
+.mail-actions .card-feedback:empty {
+    display: none
+}
+
+.mail-draft {
+    flex-shrink: 0
+}
+
+.jarvis-card-dialog>header button {
+    flex-shrink: 0
+}
+
+@media(max-width:600px) {
+    .jarvis-card-dialog {
+        width: calc(100vw - 24px);
+        max-height: calc(100dvh - 24px);
+        border-radius: 14px
+    }
+
+    .jarvis-card-dialog>header, .mail-actions {
+        padding: 14px 16px
+    }
+
+    .mail-detail {
+        padding: 20px;
+        gap: 18px
+    }
+
+    .mail-detail h2 {
+        font-size: 21px
+    }
+}

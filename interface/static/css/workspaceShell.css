@@ -1,0 +1,601 @@
+/* Define interface discreta */
+body {
+    --text: #e6e8eb;
+    --dim: #9a9da5;
+    --line: #30333a;
+    --raise: #202228;
+    background: #101114;
+    font-family: "Segoe UI", Arial, sans-serif
+}
+
+.top-hud .system-stat {
+    visibility: hidden
+}
+
+.settings-float {
+    display: none
+}
+
+.screen-bar {
+    background: #202228;
+    border-color: #33363d;
+    backdrop-filter: none;
+    box-shadow: 0 8px 20px #0003;
+    border-radius: 12px
+}
+
+.screen-bar .screen-tab {
+    min-width: 40px;
+    border-radius: 8px
+}
+
+.screen-palette {
+    background: #202228;
+    border-color: #33363d;
+    backdrop-filter: none;
+    box-shadow: 0 14px 32px #0004;
+    border-radius: 12px
+}
+
+.main-menu {
+    width: 240px
+}
+
+.screen-widget {
+    background: #1b1d21 !important;
+    border: 1px solid #34373e !important;
+    border-radius: 14px;
+    backdrop-filter: none !important;
+    box-shadow: 0 10px 25px #0002 !important
+}
+
+.widget-heading {
+    color: #d8e0eb;
+    border-color: #30343b;
+    letter-spacing: 0;
+    font-weight: 500
+}
+
+.widget-heading strong {
+    font-size: 12px
+}
+
+.widget-content {
+    color: #e0e3e8
+}
+
+.widget-remove {
+    color: #969eaa
+}
+
+.screen-widget[data-tipo=camera_live] .widget-heading {
+    background: linear-gradient(#0008, transparent)
+}
+
+.camera-card-status {
+    color: #b3becd
+}
+
+.side-r {
+    background: #181a1e;
+    border-color: #34373e;
+    box-shadow: 0 16px 35px #0003
+}
+
+.drawer {
+    background: #17191d;
+    border-color: #34373e;
+    box-shadow: 0 25px 90px #0008;
+    display: grid;
+    grid-template-columns: 172px minmax(0, 1fr);
+    grid-template-rows: auto minmax(0, 1fr)
+}
+
+.drawer>header {
+    grid-column: 1;
+    grid-row: 1/-1;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 16px;
+    border-right: 1px solid #30343b;
+    border-bottom: 0;
+    padding: 18px 12px
+}
+
+.drawer .tabs {
+    display: flex;
+    flex-direction: column;
+    gap: 7px
+}
+
+.drawer .tabs .chip {
+    text-align: left;
+    border: 0;
+    background: transparent;
+    border-radius: 8px
+}
+
+.drawer .tabs .chip.on {
+    background: #303540;
+    color: #F4F3F8
+}
+
+.drawer-actions {
+    grid-column: 2;
+    grid-row: 1;
+    border-bottom: 1px solid #30343b
+}
+
+.drawer #pane {
+    grid-column: 2;
+    grid-row: 2;
+    min-height: 0
+}
+
+.daily-header, .daily-card, .daily-mini, .daily-status {
+    background: #1b1d21;
+    border-color: #33373f;
+    box-shadow: none
+}
+
+.daily-card {
+    border-radius: 14px
+}
+
+.daily-kicker, .daily-brand>span {
+    color: #99abc4;
+    letter-spacing: .7px
+}
+
+.daily-mini.on {
+    background: #283343;
+    border-color: #819abb
+}
+
+.daily-email-item {
+    background: #20242b;
+    border-color: #333d4a
+}
+
+.daily-header {
+    border-radius: 12px
+}
+
+.widget-screen {
+    background: #101114
+}
+
+.widget-screen .screen-bar {
+    left: 16px;
+    bottom: 16px
+}
+
+/* Mostra recursos só no dashboard */
+.jarvis-dashboard {
+    position: fixed;
+    inset: 10vh max(20px, calc((100vw - 900px)/2));
+    z-index: 120;
+    background: #191b20;
+    color: #e5e8ed;
+    border: 1px solid #363a43;
+    border-radius: 18px;
+    padding: 24px;
+    box-shadow: 0 25px 90px #0009;
+    overflow: auto
+}
+
+.jarvis-dashboard>header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between
+}
+
+.jarvis-dashboard h2 {
+    margin: 0;
+    font-size: 22px
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+    margin-top: 24px
+}
+
+.dashboard-grid article {
+    background: #23262d;
+    border: 1px solid #333943;
+    border-radius: 12px;
+    padding: 18px;
+    display: grid;
+    gap: 15px
+}
+
+.dashboard-grid span {
+    font-size: 12px;
+    color: #a9b0bd
+}
+
+.dashboard-grid strong {
+    font-size: 25px;
+    font-weight: 500
+}
+
+.dashboard-grid progress {
+    width: 100%;
+    height: 5px;
+    accent-color: #8ca4c6
+}
+
+.dashboard-connections {
+    margin-top: 22px;
+    color: #aeb7c5;
+    font-size: 13px
+}
+
+.settings-group pre {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    font-size: 12px
+}
+
+.settings-group input[type=file] {
+    margin: 10px 0;
+    max-width: 100%
+}
+
+@media(max-width:700px) {
+    .drawer {
+        grid-template-columns: 130px minmax(0, 1fr)
+    }
+
+    .drawer>header {
+        padding: 12px 7px
+    }
+
+    .dashboard-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr))
+    }
+
+    .jarvis-dashboard {
+        inset: 20px;
+        padding: 16px
+    }
+}
+
+/* Organiza menu lateral */
+#drawer>header {
+    min-width: 0;
+    min-height: 0;
+    margin: 0;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: stretch
+}
+
+#drawer>header>#tabs {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    justify-content: flex-start;
+    grid-template-columns: none;
+    gap: 8px;
+    width: 100%;
+    min-width: 0;
+    min-height: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 0
+}
+
+#drawer>header>#tabs>.chip {
+    display: block;
+    flex: 0 0 auto;
+    width: 100%;
+    min-width: 0;
+    min-height: 42px;
+    padding: 10px 12px;
+    white-space: normal;
+    text-align: left;
+    border-radius: 8px
+}
+
+#drawer>header>#cfgx {
+    flex: 0 0 auto;
+    width: 100%;
+    margin-top: auto
+}
+
+/* Separa menu e conteudo */
+#drawer>#pane {
+    padding: 24px 28px;
+    box-sizing: border-box;
+    min-width: 0;
+    overflow: auto
+}
+
+#drawer>.drawer-actions {
+    padding: 12px 24px;
+    box-sizing: border-box
+}
+
+#widgetGrid .security-state-row {
+    min-height: 0;
+    padding: 0;
+    border: 0;
+    background: none;
+    gap: 16px
+}
+
+#widgetGrid .security-state-row .security-shield {
+    flex: 0 0 48px;
+    width: 48px;
+    height: 48px;
+    max-width: 48px;
+    max-height: 48px;
+    overflow: hidden
+}
+
+#widgetGrid .security-shield svg {
+    display: block;
+    width: 48px;
+    height: 48px;
+    max-width: 48px;
+    animation: none
+}
+
+#widgetGrid .security-state-copy {
+    flex: 1;
+    min-width: 0
+}
+
+#widgetGrid .widget-content {
+    padding: 16px;
+    box-sizing: border-box
+}
+
+#widgetGrid [data-tipo=camera_live] .widget-content {
+    padding: 0
+}
+
+@media(max-width:700px) {
+    #drawer>#pane {
+        padding: 18px 16px
+    }
+}
+
+/* Define cartoes holograficos */
+#widgetGrid .screen-widget {
+    background: linear-gradient(145deg, #0d1b2a, #09121d) !important;
+    border: 1px solid #27465f !important;
+    border-radius: 16px;
+    box-shadow: inset 0 1px #659bc21a, 0 6px 18px #0003 !important;
+    max-width: 720px;
+    max-height: 560px;
+    contain: layout style
+}
+
+#widgetGrid .widget-heading {
+    padding: 12px 16px;
+    border-bottom: 1px solid #243e53;
+    color: #F4F3F8;
+    letter-spacing: .6px;
+    background: #10223870
+}
+
+#widgetGrid .widget-heading strong {
+    font-size: 11px;
+    font-weight: 650
+}
+
+#widgetGrid .widget-content {
+    color: #F4F3F8;
+    line-height: 1.5
+}
+
+#widgetGrid .mac-row {
+    background: #102334;
+    border: 1px solid #203b50;
+    border-radius: 10px;
+    margin-bottom: 8px
+}
+
+#widgetGrid .mac-btn {
+    background: #17394f;
+    border: 1px solid #000000;
+    color: #F4F3F8;
+    border-radius: 8px;
+    padding: 8px 12px
+}
+
+#widgetGrid .widget-remove {
+    background: #183043;
+    color: #F4F3F8
+}
+
+#widgetGrid .mac-meta, #widgetGrid .mac-copy>span {
+    color: #8dabbf
+}
+
+#widgetGrid .mac-enter, #widgetGrid .mac-row, #widgetGrid .mac-tidy {
+    animation: none !important
+}
+
+#widgetGrid * {
+    transition: none !important;
+    backdrop-filter: none !important
+}
+
+#widgetGrid .mac-ring, #widgetGrid .mac-clock-face {
+    filter: none
+}
+
+#drawerActions>button:not(#cfgx) {
+    display: none
+}
+
+#drawerActions {
+    justify-content: flex-end;
+    min-height: 58px
+}
+
+#drawerActions>#cfgx {
+    margin-left: auto;
+    min-width: 76px
+}
+
+/* Compoe painel sem filtros caros */
+#drawer {
+    backdrop-filter: none !important;
+    transform: translate3d(-50%, -50%, 0);
+    transition: opacity 120ms ease;
+    will-change: auto
+}
+
+#drawer>#pane {
+    contain: layout style;
+    transform: translateZ(0);
+    overscroll-behavior: contain;
+    scroll-behavior: smooth;
+    scrollbar-gutter: stable
+}
+
+#drawer .settings-group {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 72px
+}
+
+#drawer .org-card {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 160px
+}
+
+#drawer .settings-group[open] {
+    content-visibility: visible
+}
+
+#drawer .settings-group, #drawer .org-card, #drawer .org-tabs, #drawer .security-live-actions {
+    backdrop-filter: none !important;
+    box-shadow: none !important;
+    transition: none !important
+}
+
+#drawer .org-tabs {
+    background: #101923
+}
+
+@media(prefers-reduced-motion:reduce) {
+    #drawer>#pane {
+        scroll-behavior: auto
+    }
+
+    #drawer {
+        transition: none
+    }
+}
+
+/* Aplica vidro leve ao painel PC */
+#screenBar, .screen-palette {
+    background: rgba(11, 24, 38, .82) !important;
+    border-color: #5aaac13d;
+    box-shadow: inset 0 1px #c3eaff16, 0 12px 28px #0003
+}
+
+#drawer {
+    background: rgba(9, 19, 31, .94) !important;
+    border-color: #7dbac73b;
+    box-shadow: inset 0 1px #dbf3ff12, 0 24px 60px #0005
+}
+
+#widgetGrid .screen-widget {
+    background: linear-gradient(145deg, rgba(15, 34, 51, .85), rgba(7, 18, 30, .9)) !important
+}
+
+#drawer .settings-group {
+    background: rgba(23, 43, 61, .55);
+    border-color: #819dbb26
+}
+
+/* Tinge fundo atras do nucleo */
+html, body {
+    background: #171d21 !important
+}
+
+body:before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(135deg, #ffffff04, #19364418);
+    z-index: 0
+}
+
+#drawer>header .ai-controls {
+    display: grid;
+    gap: 8px;
+    margin-top: auto;
+    padding: 12px 0 0;
+    border-top: 1px solid #819dbb26;
+    flex-shrink: 0
+}
+
+.ai-controls button {
+    padding: 10px 8px;
+    border: 1px solid #38505e;
+    border-radius: 9px;
+    text-align: left;
+    font-size: 12px;
+    background: #20313e;
+    color: #F4F3F8;
+    min-height: 38px
+}
+
+.ai-controls button[aria-pressed=true] {
+    border-color: #377c71;
+    color: #a4e3c8
+}
+
+/* Mostra janelas atras do Jarvis */
+html.native-glass {
+    background: transparent !important
+}
+
+html.native-glass body {
+    background: rgba(12, 16, 22, .70) !important
+}
+
+html.native-glass body:before {
+    background: linear-gradient(135deg, #ffffff03, #19364412)
+}
+
+/* Evita piscadas no vidro nativo */
+html.native-glass *, html.native-glass *:before, html.native-glass *:after {
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important
+}
+
+html.native-glass .weather-icon, html.native-glass .holo-visual, html.native-glass .holo-visual * {
+    filter: none !important
+}
+
+html.native-glass #drawer {
+    transform: translate(-50%, -50%) !important;
+    transition: none !important
+}
+
+html.native-glass #drawer>#pane {
+    transform: none
+}
+
+/* Delega transparencia ao Windows */
+html.native-glass, html.native-glass body {
+    background: #0c1016 !important
+}
+
+html.native-glass body:before {
+    display: none
+}
